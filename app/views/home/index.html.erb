@@ -1,0 +1,26 @@
+<div class="flex flex-col">
+  <h1 class="font-bold text-4xl">Menus</h1>
+  <%
+    session = GoogleDrive::Session.from_config("sheetmenu-362021-8b3508189548.json.erb")
+    ws = session.spreadsheet_by_key("1MAw1XnHOE6TfaRGof6gxa-BYrUGXpe84Qtt9o7nv1-0").worksheets[0]
+  %>
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th><%= ws[1,1] %></th>
+        <th><%= ws[1,2] %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%  (2..ws.num_rows).each do |row|  %>
+        <tr>
+          <% (1..ws.num_cols).each do |col|  %>
+            <td>
+              <%= ws[row, col]%>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

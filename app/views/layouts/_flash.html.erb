@@ -1,0 +1,12 @@
+<% flash.each do |type, message| %>
+  <% if type == "notice" %>
+    <div class="alert bg-blue-100 rounded-lg py-5 px-6 text-base inline-flex justify-center items-center flex w-full alert-dismissible fade show" role="alert">
+      <div class="message w-4/5 text-blue-800">
+        <%= message %>
+      </div>
+      <div class="button w-1/5">
+        <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
+  <% end %>
+<% end %>
