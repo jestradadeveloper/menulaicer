@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+App for menu creation through google spreedshets api
 
-Things you may want to cover:
+Tecnology Stack:
 
-* Ruby version
+* Ruby on Rails Framework
 
-* System dependencies
+* TailwindCss and Tailwind Elements
 
-* Configuration
+* Google Drive SpreedSheet Api
 
-* Database creation
+* QR Implementation
 
-* Database initialization
+* Postgresql Database
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
