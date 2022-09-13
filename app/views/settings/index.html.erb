@@ -1,5 +1,5 @@
 <div class="max-w-lg mx-auto pt-10 pb-12 px-4 lg:pb-16">
-  <%= form_with model: current_user,  url: "", local: true do |f| %>
+  <%= form_with model: current_user, scope: :settings,  url: settings_path, method: :put, local: true do |f| %>
     <div class="space-y-6">
       <div>
         <h1 class="heading">

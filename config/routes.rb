@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   get '/dashboard', to: 'dashboard#index'
   get '/settings', to: 'settings#index'
+  put '/settings', to: 'settings#update'
 end
