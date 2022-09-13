@@ -63,6 +63,11 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+
+  config.include Devise::Test::IntegrationHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :view
+  config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include FactoryBot::Syntax::Methods
 end
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|

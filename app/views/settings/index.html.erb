@@ -1,0 +1,23 @@
+<div class="max-w-lg mx-auto pt-10 pb-12 px-4 lg:pb-16">
+  <%= form_with model: current_user,  url: "", local: true do |f| %>
+    <div class="space-y-6">
+      <div>
+        <h1 class="heading">
+          User Settings
+        </h1>
+        <p class="mt-1 text-sm text-gray-500">Update your settings below.</p>
+      </div>
+      <div>
+        <%= f.label :email, class: 'block text-sm font-medium text-gray-700' %>
+        <%= f.email_field :email, class:'block w-full shadow-sm focus:ring-sky-400 focus:border-sky-400 sm:text-sm border-gray-400 rounded-md mt-3' %>
+      </div>
+      <div>
+        <%= f.label :password, class: 'block text-sm font-medium text-gray-700' %>
+        <%= f.password_field :password, class:'block w-full shadow-sm focus:ring-sky-400 focus:border-sky-400 sm:text-sm border-gray-400 rounded-md mt-3' %>
+      </div>
+      <div class="flex justify-end">
+        <%= f.submit "Update Settings", class:'inline-block  w-full cursor-pointer px-6 py-2.5 bg-blue-600 my-3 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out' %>
+      </div>
+    </div>
+  <% end %>
+</div>

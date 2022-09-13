@@ -8,11 +8,13 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body>
-    <%= turbo_frame_tag "flash" do %>
-      <%= render "layouts/flash" %>
+  <body class="<%= 'h-full' if devise_controller? || user_signed_in? %>" >
+    <%= render "layouts/flash" %>
+    <% if user_signed_in? %>
+      <%= render 'layouts/dashboard-navbar' %>
+    <% else %>
+      <%= render 'layouts/navbar' %>
     <% end %>
-    <%= render 'layouts/navbar' %>
     <main class="<%=devise_controller? ? "mt-20" : "" %>">
       <%= yield %>
     </main>
