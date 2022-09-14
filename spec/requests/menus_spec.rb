@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe 'Menus', type: :request do
   let(:user) { create(:user) }
   before { sign_in user }
-  describe 'GET /index' do
+  describe 'GET /new' do
     it 'Success' do
-      get menus_path
+      get new_menu_path
       expect(response).to have_http_status(:success)
     end
   end
