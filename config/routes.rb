@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
   get '/settings', to: 'settings#index'
   put '/settings', to: 'settings#update'
-  resources :menus, only: %i[new create]
+  resources :menus, only: %i[new create destroy update show]
 end

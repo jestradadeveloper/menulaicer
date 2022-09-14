@@ -1,11 +1,17 @@
 <% flash.each do |type, message| %>
   <% if type == "notice" %>
-    <div class="alert bg-blue-100 rounded-lg py-5 px-6 text-base inline-flex justify-center items-center flex w-full alert-dismissible fade show" role="alert">
-      <div class="message w-4/5 text-blue-800">
-        <%= message %>
-      </div>
-      <div class="button w-1/5">
-        <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div class="alert bg-blue-100 rounded-lg py-3 px-6 text-base inline-flex justify-center items-center flex w-full alert-dismissible fade show" role="alert">
+      <div class="w-9/12 mx-auto flex justify-around items-center">
+        <div class="message w-4/5 text-blue-800">
+          <%= message %>
+        </div>
+        <div class="button w-1/5 flex justify-center">
+          <button type="button" class="btn-close box-content w-4 h-4 p-1 ml-auto text-yellow-900 border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-yellow-900 hover:opacity-75 hover:no-underline" data-bs-dismiss="alert" aria-label="Close">
+            <svg width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path fill="none" stroke="#000" stroke-width="2" d="M3,3 L21,21 M3,21 L21,3"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   <% end %>

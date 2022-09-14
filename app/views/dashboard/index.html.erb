@@ -9,46 +9,63 @@
     <% end %>
   </div>
 </div>
-<div class="table mt-5 w-10/12 mx-auto">
-  <div class="flex flex-col">
-    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-      <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-        <div class="overflow-hidden">
-          <table class="min-w-full">
-            <thead class="bg-white border-b">
-              <tr>
-                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                  #
-                </th>
-                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                  Title
-                </th>
-                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                  Sheet Key
-                </th>
-                <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="bg-gray-100 border-b">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Mark
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  Otto
-                </td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  <%= link_to "#", class: 'text-green-700 font-medium hover:text-green-600 cursor-pointer' do %>
-                    Edit
-                  <% end %>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+<% if @menus.empty? %>
+  <div class="flex mt-5 w-10/12 mx-auto text-center justify-center">
+    <p>You dont have any menu</p>
+    <p>crate one by clicking the "New Menu" Button</p>
+  </div>
+<% else %>
+  <div class="table mt-5 w-10/12 mx-auto">
+    <div class="flex flex-col">
+      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="overflow-hidden">
+            <table class="min-w-full">
+              <thead class="bg-white border-b">
+                <tr>
+                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    #
+                  </th>
+                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    Title
+                  </th>
+                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    Sheet Key
+                  </th>
+                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @menus.each do |menu| %>
+                  <tr class="bg-gray-100 border-b">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      <%= menu.id %>
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      <%= menu.title %>
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      <%= menu.sheet_key %>
+                    </td>
+                    <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                      <%= link_to  menu_path(menu),  target: :_blank, class: 'text-blue-700 font-medium hover:text-blue-600 cursor-pointer' do %>
+                        View
+                      <% end %>
+                      <%= link_to menu_path(menu), data: { "turbo-method": :put }, class: 'text-green-700 font-medium hover:text-green-600 cursor-pointer ml-2' do %>
+                        Sync
+                      <% end %>
+                      <%= link_to menu_path(menu), data: { "turbo-method": :delete} , class: 'text-red-700 font-medium hover:text-red-600 cursor-pointer ml-2' do %>
+                        Delete
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
