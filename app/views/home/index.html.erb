@@ -3,7 +3,9 @@
   <h1 class="font-bold text-4xl">Menus</h1>
   <%
     session = GoogleDrive::Session.from_config("sheetmenu-362021-8b3508189548.json.erb")
-    ws = session.spreadsheet_by_key("1MAw1XnHOE6TfaRGof6gxa-BYrUGXpe84Qtt9o7nv1-0").worksheets[0]
+    spreadsheet = session.spreadsheet_by_key("1MAw1XnHOE6TfaRGof6gxa-BYrUGXpe84Qtt9o7nv1-0")
+    ws = spreadsheet.worksheets[0]
+    key, values = ws.rows.first, ws.rows[1..-1]
   %>
   <table class="table-auto">
     <thead>
