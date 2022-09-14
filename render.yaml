@@ -1,0 +1,18 @@
+databases:
+  - name: menulaicer
+    databaseName: menulaicer
+    user: menulaicer
+
+services:
+  - type: web
+    name: menulaicer
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: menulaicer
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
