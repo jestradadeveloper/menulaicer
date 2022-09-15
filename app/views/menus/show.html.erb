@@ -1,14 +1,1 @@
-<%
-qr_code = RQRCode::QRCode.new(qr_menu_url(@menu))
-svg = qr_code.as_svg(
-  color: "000",
-  shape_rendering: "crispEdges",
-  module_size: 11,
-  standalone: true,
-  use_path: true
-)
-%>
-<div class="flex justify-center py-6 my-6">
-  <%=svg.html_safe%>
-</div>
 <%= render @menu %>
