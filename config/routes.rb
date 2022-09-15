@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get '/settings', to: 'settings#index'
   put '/settings', to: 'settings#update'
   resources :menus, only: %i[new create destroy update show]
+  resources :qr_menus, only: :show
 end
