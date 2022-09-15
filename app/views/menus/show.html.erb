@@ -1,5 +1,5 @@
 <%
-qr_code = RQRCode::QRCode.new(menu_url(@menu))
+qr_code = RQRCode::QRCode.new(qr_menu_url(@menu))
 svg = qr_code.as_svg(
   color: "000",
   shape_rendering: "crispEdges",
