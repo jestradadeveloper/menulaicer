@@ -1,12 +1,12 @@
 <%= render 'layouts/header' %>
-<div class="py-10 bg-beige-300 flex justify-center flex-col items-center">
+<div class="py-10 bg-beige-300 flex justify-center flex-col items-center w-11/12 md:w-7/12 mx-auto">
   <h2 class="text-xl font-bold leading-5 mb-3 uppercase">Recent menus</h2>
   <p>Checkout our recents digital menus that our users have created</p>
 </div>
-<div class="py-10 flex justify-center w-7/12 mx-auto">
+<div class="mb-10 flex justify-center w-11/12 md:w-7/12 mx-auto">
   <ul class="list flex w-full">
     <% Menu.find_each do |menu| %>
-      <li class="w-4/12 text-center">
+      <li class="w-full md:w-4/12 text-center">
         <div class="space-y-3 w-full text-center">
           <%= link_to qr_menu_path(menu), class: 'link' do %>
             <%= image_tag menu.menu_items.sample.image_url, alt:'', class: 'mx-auto h-40 w-40 rounded object-cover' %>
