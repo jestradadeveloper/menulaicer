@@ -1,0 +1,39 @@
+<%
+qr_code = RQRCode::QRCode.new(qr_menu_url(@menu))
+
+%>
+<div class="flex justify-center py-6 my-6 flex-col w-full px-12 md:w-8/12 mx-auto items-center">
+  <h1 class="heading mb-2">QR Code</h1>
+  <h2 class="text-lg font-bold mb-2"><%= link_to @menu.title, qr_menu_path(@menu), class:'text-bold text-green-700 hover:text-green-800' %></h2>
+  <% if ActiveModel::Type::Boolean.new.cast(params[:multiple]) %>
+    <%= link_to qr_code_path(@menu, multiple: false), class: 'mb-6' do %>
+      View / Print Singe Code
+    <% end %>
+    <div class="grid grid-cols-5 gap-4">
+      <% svg = qr_code.as_svg(
+        color: "000",
+        shape_rendering: "crispEdges",
+        module_size: 5,
+        standalone: true,
+        use_path: true
+      ) %>
+      <%50.times do  %>
+        <div class="mb-14 mr-5">
+          <%=svg.html_safe%>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <%= link_to qr_code_path(@menu, multiple: true), class: 'mb-6' do %>
+      View / Print Multiple QR Codes
+    <% end %>
+    <% svg = qr_code.as_svg(
+        color: "000",
+        shape_rendering: "crispEdges",
+        module_size: 11,
+        standalone: true,
+        use_path: true
+      ) %>
+    <%=svg.html_safe%>
+  <% end %>
+</div>
