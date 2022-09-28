@@ -1,6 +1,6 @@
 <div class="flex justify-center items-center flex-col">
   <h2 class="heading">Log in</h2>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }, html: { class: 'w-full md:w-5/12 mx-auto px-4'}) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {'data-turbo' => "false", class: 'w-full md:w-5/12 mx-auto px-4'}) do |f| %>
     <div class="field my-1">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" %>
