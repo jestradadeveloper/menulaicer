@@ -30,4 +30,6 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  title: "Restaurant menus from"
+  headline: "Create QR codes enabling menus easily using Google Sheets"
+  get_started: "Get Started"

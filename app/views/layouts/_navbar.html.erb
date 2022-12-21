@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg shadow-md py-2 bg-white relative flex items-center w-full justify-between">
   <div class="px-6 w-full flex flex-wrap items-center justify-between md:flex-row-reverse md:w-3/5 mx-auto">
-    <div class="flex items-center w-full flex-row justify-between md:justify-center md:w-2/12">
+    <div class="flex items-center w-full flex-row justify-between md:justify-center md:w-3/12">
       <button
         class="navbar-toggler border-0 py-3 lg:hidden leading-none text-xl bg-transparent text-gray-600 hover:text-gray-700 focus:text-gray-700 transition-shadow duration-150 ease-in-out mr-2"
         type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContentY"
@@ -13,6 +13,19 @@
           </path>
         </svg>
       </button>
+      <% if I18n.locale == :es %>
+        <%= link_to locale: "en"  do %>
+          <span class="btn px-2 py-2 border mr-3 cursor-pointer rounded border-violet-800 text-sm">
+            EN
+          </span>
+        <% end %>
+      <% else %>
+        <%= link_to locale: "es"  do %>
+          <span class="btn px-2 py-2 border mr-3 cursor-pointer rounded border-violet-800	text-sm">
+            ES
+          </span>
+        <% end %>
+      <% end %>
       <!-- User Mobile Section -->
       <div class="user-section">
         <% if signed_in? %>
@@ -39,7 +52,7 @@
         <% end %>
       </div>
     </div>
-    <div class="navbar-collapse collapse grow items-center md:w-10/12" id="navbarSupportedContentY">
+    <div class="navbar-collapse collapse grow items-center md:w-9/12" id="navbarSupportedContentY">
       <ul class="navbar-nav mr-auto lg:flex lg:flex-row">
         <li class="nav-item">
           <%= link_to root_path, class: 'nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out' do %>
