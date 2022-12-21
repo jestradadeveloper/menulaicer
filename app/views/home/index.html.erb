@@ -4,21 +4,25 @@
   <p>Checkout our recents digital menus that our users have created</p>
 </div>
 <div class="mb-10 flex justify-center w-11/12 md:w-7/12 mx-auto">
-  <ul class="list flex w-full">
-    <% Menu.find_each do |menu| %>
-      <li class="w-full md:w-4/12 text-center">
-        <div class="space-y-3 w-full text-center">
-          <%= link_to qr_menu_path(menu), class: 'link' do %>
-            <%= image_tag menu.menu_items.sample.image_url, alt:'', class: 'mx-auto h-40 w-40 rounded object-cover' %>
-          <% end %>
-          <div class="space-y-2">
-            <div class="space-y-1 text-lg leading-6 font-medium">
-              <h3 class="mb-2"><%=link_to menu.title, qr_menu_path(menu), class:'' %></h3>
-              <p class="text-indigo-600 mt-2"><%= link_to "QR Codes", qr_code_path(menu) %></p>
+  <% if @menus.present? %>
+    <ul class="list flex w-full">
+      <% @menus.each do |menu| %>
+        <li class="w-full md:w-4/12 text-center">
+          <div class="space-y-3 w-full text-center">
+            <%= link_to qr_menu_path(menu), class: 'link' do %>
+              <%= image_tag menu.menu_items.sample.image_url, alt:'', class: 'mx-auto h-40 w-40 rounded object-cover' %>
+            <% end %>
+            <div class="space-y-2">
+              <div class="space-y-1 text-lg leading-6 font-medium">
+                <h3 class="mb-2"><%=link_to menu.title, qr_menu_path(menu), class:'' %></h3>
+                <p class="text-indigo-600 mt-2"><%= link_to "QR Codes", qr_code_path(menu) %></p>
+              </div>
             </div>
           </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <strong>There are no menus yet</strong>
+  <% end %>
 </div>
