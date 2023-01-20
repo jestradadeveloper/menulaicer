@@ -67,3 +67,5 @@ end
 gem 'hotwire-rails', '~> 0.1.3'
 
 gem 'ruby-lsp', '~> 0.3.2', group: :development
+# Add api for production monitoring error service
+gem 'honeybadger', '~> 5.0'
