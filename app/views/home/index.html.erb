@@ -15,7 +15,8 @@
             <div class="space-y-2">
               <div class="space-y-1 text-lg leading-6 font-medium">
                 <h3 class="mb-2"><%=link_to menu.title, qr_menu_path(menu), class:'' %></h3>
-                <p class="text-indigo-600 mt-2"><%= link_to "QR Codes", qr_code_path(menu) %></p>
+                <p class="text-indigo-600 mt-2"><%= link_to "QR Code", qr_code_path(menu) %></p>
+                <p class="text-indigo-600 mt-2"><%= link_to "PDF Version", qr_menu_path(menu, format: :pdf) %></p>
               </div>
             </div>
           </div>
