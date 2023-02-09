@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <th>Platillo</th>
+    <th>Description</th>
+    <th>Costo</th>
+  </thead>
+  <tbody>
+    <% @menu.menu_items.group_by(&:category).each do | category, items| %>
+      <tr >
+        <td colspan="3" class="category__<%= category.parameterize %>"><%= category %></td>
+      </tr>
+      <% items.each do |menu_item| %>
+        <tr>
+          <td width="30%">
+            <p><%= menu_item.item_name %></p>
+            <strong><%= category  %></strong>
+          </td>
+          <td width="50%"><%= menu_item.description %></td>
+          <td><%= menu_item.price  %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

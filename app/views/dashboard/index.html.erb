@@ -52,6 +52,9 @@
                       <%= link_to qr_code_path(menu), target: :_blank, class: 'text-green-700 font-medium hover:text-green-600 cursor-pointer mr-2' do %>
                         Print QR Code
                       <% end %>
+                      <%= link_to menu_path(menu, format: :pdf), target: :_blank, class: 'text-pink-700 font-medium hover:text-green-600 cursor-pointer mr-2' do %>
+                        View PDF
+                      <% end %>
                       <%= link_to  menu_path(menu),  target: :_blank, class: 'text-blue-700 font-medium hover:text-blue-600 cursor-pointer' do %>
                         View
                       <% end %>
